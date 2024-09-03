@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terjemahan Lampung - Indonesia</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Mengarahkan ke file CSS eksternal -->
+    <script defer src="js/mainTerjemahan.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #E9F5DB;
+            color: #4A4A4A;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .aksaraLampung {
+            font-family: 'AksaraLampung';
+            font-size: 2em;
+            color: #718355;
+        }
+        
+        .hide {
+            display: none;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .show {
+            display: block;
+        }
+        
+        .radio {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .indonesiaRadio, .lampungRadio {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #718355;
+            cursor: pointer;
+        }
+        
+        label {
+            font-size: 1.2rem;
+            color: #4A4A4A;
+            cursor: pointer;
+        }
+        
+        input[type="radio"]:hover {
+            transform: scale(1.1);
+            transition: transform 0.2s ease;
+        }
+        
+        #judulAplikasi {
+            font-size: 2.5rem;
+            color: #718355;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        #petunjukAksara {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #CFE1B9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #4A4A4A;
+        }
+        
+        .btn {
+            margin: 0.2rem;
+            font-size: 1.2rem;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-default {
+            background-color: #97A97C;
+            color: white;
+            border: none;
+        }
+        
+        .btn-default:hover {
+            background-color: #87986A;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: #B5C99A;
+            color: white;
+            border: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #97A97C;
+            transform: translateY(-2px);
+        }
+        
+        #hasilTerjemah ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+        
+        #hasilTerjemah ul li {
+            padding: 0.5rem;
+            border-bottom: 1px solid #B5C99A;
+        }
+        
+        .content {
+            flex: 1;
+        }
+        
+        .footer {
+            bottom: -50vh;
+            background-color: #718355;
+            color: #E9F5DB;
+            padding: 10px 0;
+            z-index: 10;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .footer-links {
+            font-size: 14px;
+            margin-top: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #CFE1B9;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        
+        .footer-links a:hover {
+            color: #B5C99A;
+            text-decoration: underline;
+        }
+        
+        #tanggalWaktu {
+            font-size: 1.2em;
+            color: #87986A;
+            margin-top: 5px;
+        }
+        
+        #jam {
+            font-size: 1.5em;
+            color: #87986A;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            #judulAplikasi {
+                font-size: 1.8rem;
+                margin-top: 1.5rem;
+            }
+            
+            .btn {
+                font-size: 1rem;
+                padding: 0.6rem 0.8rem;
+            }
+        }
+        
+        .swal2-image {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .swal2-confirm {
+            background-color: #87986A;
+            border-color: #718355;
+        }
+        
+        .swal2-cancel {
+            background-color: #f44336;
+            border-color: #f44336;
+        }
+        
+        .swal2-confirm:hover {
+            background-color: #718355;
+        }
+        
+        .swal2-cancel:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" src="https://petrusdavidadipranata.github.io/assets/audio/cakCulay.mp3" type="audio/mpeg" loop></audio>
+    <div class="container mt-5">
+        <h1 id="judulAplikasi">Terjemahan Lampung - Indonesia</h1>
+        <hr>
+        <p class="text-center" id="tanggalWaktu"></p>
+        <p class="text-center" id="jam"></p>
+        <hr>
+        <form id="terjemahForm">
+            <div class="form-group">
+                <label for="bahasaAsal">Bahasa Asal</label>
+                <select id="bahasaAsal" class="form-control">
+                    <option value="indonesia">Indonesia</option>
+                    <option value="lampung">Lampung</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bahasaTujuan">Bahasa Tujuan</label>
+                <select id="bahasaTujuan" class="form-control">
+                    <option value="indonesia">Indonesia</option>
+                    <option value="lampung">Lampung</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="kataAsal">Masukkan Kata/Kalimat</label>
+                <input type="text" id="kataAsal" class="form-control">
+            </div>
+            <div id="hasilTerjemah" class="alert alert-info"></div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Terjemahan Lampung - Indonesia</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.0.18/sweetalert2.all.min.js"></script>
+    <script src="js/mainTerjemahan.js"></script>
+</body>
+</html>
