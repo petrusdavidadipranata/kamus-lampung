@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show SweetAlert2 modal on page load
     Swal.fire({
         title: 'Selamat datang!',
-        text:'music by DRB RECORDS - Yusuf Cak Culay (Cak Culay) & Thanks to pak Meizano Ardhi Muhammad',
+        text:'',
         imageUrl: '../img/siger.png',
         showCancelButton: false,
         confirmButtonText: 'Okey!'
@@ -365,4 +365,10 @@ document.addEventListener('DOMContentLoaded', function() {
             playAudio();
         }
     });
+});
+
+document.getElementById('musicSelect').addEventListener('change', function () {
+    const audioElement = document.getElementById('backgroundMusic');
+    audioElement.src = this.value;
+    audioElement.play();
 });
