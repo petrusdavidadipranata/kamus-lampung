@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 
@@ -10,7 +9,7 @@
     <meta name="author" content="Meizano">
     <meta name="theme-color" content="#5FAAE5" />
     <title>Kamus Aksara Indonesia Lampung</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/siger.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,15 +32,29 @@
                 <form id="terjemahForm">
                     <fieldset>
                         <h1 class="text-center" id="judulAplikasi">Kamus Indonesia Lampung</h1>
+
+                        <!-- Music selection dropdown -->
+                        <div class="music form-group text-center mb-4">
+                            <label for="musicSelect">Pilih Musik Latar:</label>
+                            <select id="musicSelect" class="form-control">
+                                <option value="https://petrusdavidadipranata.github.io/assets/audio/cakCulay.mp3">Cak Culay Nabuy - Yusuf Cak Culay (By DRB RECORDS)</option>
+                                <option value="https://petrusdavidadipranata.github.io/audio/Lagu%20Daerah%20Indonesia%20-%20(Cangget%20Agung%20-%20Lagu%20Daerah%20Lampung%20(Lirik%20dan%20Terjemahan)).mp3">Cangget Agung - Lagu Daerah Lampung (By Lagu Daerah Indonesia)</option>
+                                <option value="https://petrusdavidadipranata.github.io/audio/Lagu%20Daerah%20Indonesia%20-%20(Tanoh%20Lado%20-%20Lagu%20Daerah%20Lampung%20(Lirik%20dan%20Terjemahan)).mp3">Tanoh Lado - Lagu Daerah Lampung ( By Lagu Daerah Indonesia)</option>
+                                <option value="https://petrusdavidadipranata.github.io/audio/R.B%20Official%20-%20(DJ%20REMIX%20LAMPUNG%20TERBARU%20FULL%20BASS%202024%20KENCENG%20YAI).mp3">DJ Remix Lampung (By R.B Official)</option>
+                            </select>
+                        </div>
+
                         <div class="radio form-group text-center">
                             <div class="indonesiaRadio">
-                                <input id="indonesia" name="bahasa" type="radio" value="indonesia" checked><label for="indonesia">Indonesia</label>
+                                <input id="indonesia" name="bahasa" type="radio" value="indonesia" checked>
+                                <label for="indonesia">Indonesia</label>
                             </div>
                             <div class="lampungRadio">
-                                <input id="lampung" name="bahasa" type="radio" value="lampung"><label for="lampung">Lampung</label>
+                                <input id="lampung" name="bahasa" type="radio" value="lampung">
+                                <label for="lampung">Lampung</label>
                             </div>
-
                         </div>
+                        
                         <div class="form-group">
                             <input aria-label="Kata/kalimat yang diartikan" id="kataAsal" class="form-control mb-4" placeholder="Masukan kata/kalimat yang ingin diartikan" name="kataAsal"
                                 type="text" autofocus required>
@@ -50,7 +63,9 @@
                         </div>
                     </fieldset>
                 </form>
-                <div id="petunjukAksara" class="">
+
+                <!-- Aksara Lampung Buttons -->
+                <div id="petunjukAksara" class="text-center">
                     <button type="button" class="btn btn-default"><span class="aksaraLampung">k</span><br /> (ka) k
                     </button>
                     <button type="button" class="btn btn-default"><span class="aksaraLampung">g</span><br /> (ga) g
@@ -118,24 +133,22 @@
                 </div>
             </div>
         </div>
+
         <div class="row justify-content-md-center">
             <div class="col-sm-12 col-md-12 col-lg-10">
-                <div id="hasilTerjemah">
-                </div>
+                <div id="hasilTerjemah"></div>
             </div>
         </div>
     </div>
+
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-    <!-- <script src="./js/jquery-1.11.3.min.js"></script> -->
-    <!-- <script src="./js/bootstrap.min.js"></script> -->
-    <!-- <script src="dispatcher/indonesia2lampung.js"></script> -->
     <script src="./js/aksaraLampung.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/offline.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127744902-1"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -143,18 +156,51 @@
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-
-        gtag('config', 'UA-127744902-1');
+        gtag('config', 'UA-127744902-1');   
     </script>
-
 </body>
+
 <footer class="footer">
+    <div class="text-center mt-4 p-4">
+        <h3 class="text-light text-decoration-underline">Terima Kasih</h3>
+        <p class="lead text-center">Proyek ini tidak akan terlaksana tanpa referensi dari beberapa pihak:</p>
+        <hr>
+        <ul class="list-unstyled">
+            <li class="mb-2"><strong>Referensi Proyek dan Kode:</strong><br><a class="text-light" href="https://meizano.github.io/">Pak Meizano Ardhi Muhammad, S.T.,M.T.</a></li>
+            <hr>
+            <li><strong>Musik oleh:</strong></li>
+            <ul class="list-unstyled">
+                <li class="mb-1">
+                    <a href="https://www.youtube.com/@DRBrecords_" target="_blank" class="text-decoration-line text-light link">
+                        DRB RECORDS
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="https://www.youtube.com/@muhamadyusufmahmud1084" target="_blank" class="text-light">
+                        Yusuf Cak Culay
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="https://www.youtube.com/@LaguDaerah.Indonesia" target="_blank" class=" text-light">
+                        Lagu Daerah Indonesia
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="https://www.youtube.com/@r.bofficial7530" target="_blank" class=" text-light">
+                        R.B official
+                    </a>
+                </li>
+            </ul>
+            <hr>
+        </ul>
+        <p class="text-light">Kami sangat menghargai bantuan dan karya dari semua yang terlibat. <span>Terima kasih!</span></p>
+        <hr>
+    </div>
+    
     <div class="text-center">
         <p class="mb-0">&copy; 2024 Kamus Aksara Lampung. All rights reserved.</p>
-        <p class="mb-0">Make with ♥ by Pzdaprnt</p>
+        <p class="mb-0">Made with ♥ by Pzdaprnt</p>
     </div>
 </footer>
-
-
 
 </html>
